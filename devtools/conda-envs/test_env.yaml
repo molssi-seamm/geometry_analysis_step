@@ -9,7 +9,10 @@ dependencies:
   - pip
 
   # SEAMM
+  - numpy
+  - pandas
   - seamm
+  - tabulate
 
   # Testing
   - black
@@ -26,4 +29,3 @@ dependencies:
   - pip:
     # Documentation
     - sphinx-copybutton
-    - sphinx-rtd-theme
