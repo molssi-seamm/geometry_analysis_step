@@ -75,7 +75,7 @@ do
 	make -C docs clean
 
 	# Build the documentation for the code
-	sphinx-apidoc -o docs/developer geometry_analysis_step
+	sphinx-apidoc -o docs/api geometry_analysis_step
 
 	# HTML #
 	sphinx-build -b html docs/ docs/_build/html/${current_language}/${current_version} -D language="${current_language}"

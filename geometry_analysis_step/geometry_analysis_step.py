@@ -11,7 +11,7 @@ class GeometryAnalysisStep(object):
     for creating the graphical and non-graphical nodes.
 
     The dictionary for the description is the class variable just below these
-    comments. The felds are as follows:
+    comments. The fields are as follows:
 
         my_description : {str, str}
             A human-readable description of this step. It can be
@@ -33,7 +33,7 @@ class GeometryAnalysisStep(object):
 
     my_description = {
         "description": "An interface for Geometry Analysis",
-        "group": "Simulations",
+        "group": "Analysis",
         "name": "Geometry Analysis",
     }
 

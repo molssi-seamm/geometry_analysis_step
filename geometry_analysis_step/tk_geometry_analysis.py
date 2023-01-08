@@ -4,6 +4,7 @@
 
 import pprint  # noqa: F401
 import tkinter as tk
+import tkinter.ttk as ttk
 
 import geometry_analysis_step  # noqa: F401
 import seamm
@@ -120,27 +121,113 @@ class TkGeometryAnalysis(seamm.TkNode):
 
         # Then create the widgets
         for key in P:
-            if key[0] != "_" and key not in (
-                "results",
-                "extra keywords",
-                "create tables",
+            if (
+                key[0] != "_"
+                and key
+                not in (
+                    "ids",
+                    "only first id",
+                    "results",
+                    "extra keywords",
+                    "create tables",
+                )
+                and "column" not in key
             ):
                 self[key] = P[key].widget(frame)
 
+        # Frame for column information
+        cframe = self["column frame"] = ttk.LabelFrame(
+            frame,
+            borderwidth=4,
+            relief="sunken",
+            text="Column Names",
+            labelanchor="n",
+            padding=10,
+        )
+        for key in P:
+            if "column" in key or key in ("ids", "only first id"):
+                w = self[key] = P[key].widget(cframe)
+
+        # Bindings to make reactive
+        for item in ("target", "table output"):
+            w = self[item]
+            w.combobox.bind("<<ComboboxSelected>>", self.reset_dialog)
+            w.combobox.bind("<Return>", self.reset_dialog)
+            w.combobox.bind("<FocusOut>", self.reset_dialog)
+        for item in ("id column",):
+            w = self[item]
+            w.combobox.bind("<<ComboboxSelected>>", self.reset_columns)
+            w.combobox.bind("<Return>", self.reset_columns)
+            w.combobox.bind("<FocusOut>", self.reset_columns)
+
         # and lay them out
+        self.reset_columns()
         self.reset_dialog()
+
+    def reset_columns(self, widget=None):
+        # Remove any widgets previously packed
+        frame = self["column frame"]
+        for slave in frame.grid_slaves():
+            slave.grid_forget()
+
+        widgets0 = []
+        widgets1 = []
+        widgets2 = []
+        widgets3 = []
+
+        row = 0
+        self["id column"].grid(row=row, column=0, sticky=tk.EW)
+        widgets0.append(self["id column"])
+        if self["id column"].get().strip() != "":
+            self["ids"].grid(row=row, column=1, sticky=tk.EW)
+            widgets1.append(self["ids"])
+            self["only first id"].grid(row=row, column=2, sticky=tk.EW)
+            widgets2.append(self["ids"])
+        row += 1
+
+        self["term type column"].grid(row=row, column=0, sticky=tk.EW)
+        widgets0.append(self["term type column"])
+        row += 1
+
+        self["indx1 column"].grid(row=row, column=0, sticky=tk.EW)
+        widgets0.append(self["indx1 column"])
+        self["indx2 column"].grid(row=row, column=1, sticky=tk.EW)
+        widgets1.append(self["indx2 column"])
+        self["indx3 column"].grid(row=row, column=2, sticky=tk.EW)
+        widgets2.append(self["indx3 column"])
+        self["indx4 column"].grid(row=row, column=3, sticky=tk.EW)
+        widgets3.append(self["indx4 column"])
+        row += 1
+
+        self["el1 column"].grid(row=row, column=0, sticky=tk.EW)
+        widgets0.append(self["el1 column"])
+        self["el2 column"].grid(row=row, column=1, sticky=tk.EW)
+        widgets1.append(self["el2 column"])
+        self["el3 column"].grid(row=row, column=2, sticky=tk.EW)
+        widgets2.append(self["el3 column"])
+        self["el4 column"].grid(row=row, column=3, sticky=tk.EW)
+        widgets3.append(self["el4 column"])
+        row += 1
+
+        self["atom indices column"].grid(row=row, column=0, sticky=tk.EW)
+        widgets0.append(self["atom indices column"])
+        row += 1
+
+        self["term column"].grid(row=row, column=0, sticky=tk.EW)
+        widgets0.append(self["term column"])
+        row += 1
+
+        self["value column"].grid(row=row, column=0, sticky=tk.EW)
+        widgets0.append(self["value column"])
+        row += 1
+
+        sw.align_labels(widgets0, sticky=tk.E)
+        sw.align_labels(widgets1, sticky=tk.E)
+        sw.align_labels(widgets2, sticky=tk.E)
+        sw.align_labels(widgets3, sticky=tk.E)
 
     def reset_dialog(self, widget=None):
         """Layout the widgets in the dialog.
-
-        The widgets are chosen by default from the information in
-        Geometry Analysis_parameter.
-
-        This function simply lays them out row by row with
-        aligned labels. You may wish a more complicated layout that
-        is controlled by values of some of the control parameters.
-        If so, edit or override this method
-
         Parameters
         ----------
         widget : Tk Widget = None
@@ -166,18 +253,40 @@ class TkGeometryAnalysis(seamm.TkNode):
         # if e.g. rows are skipped to control such as "method" here
         row = 0
         widgets = []
-        for key in P:
-            if key[0] != "_" and key not in (
-                "results",
-                "extra keywords",
-                "create tables",
+        self["target"].grid(row=row, column=0, columnspan=2, sticky=tk.EW)
+        row += 1
+        widgets.append(self["target"])
+        target = self["target"].get()
+        if target == "specified terms":
+            self["specification"].grid(row=row, column=1, sticky=tk.EW)
+            row += 1
+        self["table output"].grid(row=row, column=0, columnspan=2, sticky=tk.EW)
+        row += 1
+        widgets.append(self["table output"])
+        output = self["table output"].get()
+        if "single" in output:
+            self["table"].grid(row=row, column=1, sticky=tk.EW)
+            row += 1
+            self["column frame"].grid(row=row, column=0, columnspan=3, sticky=tk.W)
+            row += 1
+        elif "separate" in output:
+            widgets2 = []
+            for key in (
+                "bond table",
+                "angle table",
+                "dihedral table",
+                "out-of-plane table",
             ):
-                self[key].grid(row=row, column=0, sticky=tk.EW)
-                widgets.append(self[key])
+                self[key].grid(row=row, column=1, sticky=tk.EW)
                 row += 1
+                widgets2.append(self[key])
+            sw.align_labels(widgets2, sticky=tk.E)
+            self["column frame"].grid(row=row, column=0, columnspan=3, sticky=tk.W)
+            row += 1
 
         # Align the labels
         sw.align_labels(widgets, sticky=tk.E)
+        frame.columnconfigure(0, minsize=30)
 
         # Setup the results if there are any
         have_results = (

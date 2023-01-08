@@ -19,11 +19,11 @@ dependencies:
   - pytest-cov
 
   # Documentation
-  - pygments
-  
+  - pydata-sphinx-theme
+  - sphinx-design
+
   # Pip-only installs
   - pip:
     # Documentation
-    - rinohtype
+    - sphinx-copybutton
     - sphinx-rtd-theme
-    - pystemmer
