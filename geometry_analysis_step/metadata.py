@@ -29,7 +29,7 @@ the values are a dictionary describing the result. For example::
     }
 
 Fields
-______ 
+______
 
 calculation : [str]
     Optional metadata describing what subtype of the step produces this result.
