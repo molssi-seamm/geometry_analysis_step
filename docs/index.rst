@@ -62,7 +62,7 @@ Versions of this Documentation
 .. raw:: html
 
    <iframe
-   src="https://molssi-seamm.github.io/Geometry Analysis/dev/versions.html"
+   src="https://molssi-seamm.github.io/geometry_analysis_step/dev/versions.html"
    title="Documentation Versions"  style="border:none;">
    </iframe>
 
@@ -75,4 +75,3 @@ Versions of this Documentation
    user_guide/index
    developer_guide/index
    api/index
-   Main SEAMM documentation <https://molssi-seamm.github.io>
