@@ -64,7 +64,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'SEAMM Geometry Analysis Plug-in'
-copyright = u"2022, Molecular Sciences Software Institute (MolSSI)"
+copyright = u"2023, Molecular Sciences Software Institute (MolSSI)"
 # The version info for the project you're documenting, acts as replacement
 # for |version| and |release|, also used in various other places throughout
 # the built documents.
@@ -129,13 +129,17 @@ html_theme_options = {
     "twitter_url": "https://twitter.com/MolSSI_NSF",
 
     "logo": {
-        "image_light": "molssi_main_logo.png",
+        "image_light": "SEAMM logo.png",
         "image_dark": "molssi_main_logo_inverted_white.png",
         "text": "Geometry Analysis"
     },
+
+     "footer_items": ["footer"],
+    
     "show_toc_level": 2,
     "header_links_before_dropdown": 4,
     "external_links": [
+        {"name": "SEAMM Documentation", "url": "https://molssi-seamm.github.io"},
         {"name": "MolSSI", "url": "https://molssi.org"}
     ],
     "secondary_sidebar_items": ["page-toc", "sourcelink"],
@@ -154,7 +158,7 @@ html_theme_options = {
 
 # The name of an image file (relative to this directory) to place at the
 # top of the sidebar.
-# html_logo = None
+# html_logo = "./_static/SEAMM logo.png"
 
 # The name of an image file (within the static path) to use as favicon
 # of the docs.  This file should be a Windows icon file (.ico) being

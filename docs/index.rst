@@ -75,4 +75,3 @@ Versions of this Documentation
    user_guide/index
    developer_guide/index
    api/index
-   Main SEAMM documentation <https://molssi-seamm.github.io>
