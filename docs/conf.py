@@ -47,7 +47,6 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx_design',
     'sphinx_copybutton'
-
 ]
 
 # Add any paths that contain templates here, relative to this directory.
