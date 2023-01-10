@@ -1,0 +1,1491 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>geometry_analysis_step package &#8212; SEAMM Geometry Analysis Plug-in 2023.1.8+7.g854756e documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/geometry_analysis_step';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="geometry_analysis_step" href="modules.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/SEAMM logo.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/molssi_main_logo_inverted_white.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+    <p class="title logo__title">Geometry Analysis</p>
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../developer_guide/index.html">
+                        Developer Documentation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        API Documentation
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://molssi-seamm.github.io">
+                    SEAMM Documentation
+                  </a>
+                </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://molssi.org">
+                    MolSSI
+                  </a>
+                </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/molssi-seamm/geometry_analysis_step" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/MolSSI_NSF" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-square-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting_started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user_guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../developer_guide/index.html">
+                        Developer Documentation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        API Documentation
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://molssi-seamm.github.io">
+                    SEAMM Documentation
+                  </a>
+                </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link nav-external" href="https://molssi.org">
+                    MolSSI
+                  </a>
+                </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/molssi-seamm/geometry_analysis_step" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/MolSSI_NSF" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-toggle="tooltip"><span><i class="fa-brands fa-square-twitter"></i></span>
+            <label class="sr-only">Twitter</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">
+    Section Navigation
+  </p>
+  <div class="bd-toc-item navbar-nav">
+    <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="modules.html">geometry_analysis_step</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">geometry_analysis_step package</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+            </div>
+            
+            
+            <article class="bd-article" role="main">
+              
+  <section id="geometry-analysis-step-package">
+<h1>geometry_analysis_step package<a class="headerlink" href="#geometry-analysis-step-package" title="Permalink to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="module-geometry_analysis_step.find_mopac">
+<span id="geometry-analysis-step-find-mopac-module"></span><h2>geometry_analysis_step.find_mopac module<a class="headerlink" href="#module-geometry_analysis_step.find_mopac" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="geometry_analysis_step.find_mopac.find_mopac">
+<span class="sig-prename descclassname"><span class="pre">geometry_analysis_step.find_mopac.</span></span><span class="sig-name descname"><span class="pre">find_mopac</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/find_mopac.html#find_mopac"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.find_mopac.find_mopac" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-geometry_analysis_step.geometry_analysis">
+<span id="geometry-analysis-step-geometry-analysis-module"></span><h2>geometry_analysis_step.geometry_analysis module<a class="headerlink" href="#module-geometry_analysis_step.geometry_analysis" title="Permalink to this heading">#</a></h2>
+<p>Non-graphical part of the Geometry Analysis step in a SEAMM flowchart</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.GeometryAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geometry_analysis_step.geometry_analysis.</span></span><span class="sig-name descname"><span class="pre">GeometryAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flowchart=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title='Geometry</span> <span class="pre">Analysis'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger=&lt;Logger</span> <span class="pre">geometry_analysis_step.geometry_analysis</span> <span class="pre">(WARNING)&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis.html#GeometryAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
+<p>The non-graphical part of a Geometry Analysis step in a flowchart.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.GeometryAnalysis.parser">
+<span class="sig-name descname"><span class="pre">parser</span></span><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.parser" title="Permalink to this definition">#</a></dt>
+<dd><p>The parser object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>configargparse.ArgParser</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.GeometryAnalysis.options">
+<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.options" title="Permalink to this definition">#</a></dt>
+<dd><p>It contains a two item tuple containing the populated namespace and the
+list of remaining argument strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.GeometryAnalysis.subflowchart">
+<span class="sig-name descname"><span class="pre">subflowchart</span></span><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.subflowchart" title="Permalink to this definition">#</a></dt>
+<dd><p>A SEAMM Flowchart object that represents a subflowchart, if needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>seamm.Flowchart</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.GeometryAnalysis.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.parameters" title="Permalink to this definition">#</a></dt>
+<dd><p>The control parameters for Geometry Analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#geometry_analysis_step.geometry_analysis_parameters.GeometryAnalysisParameters" title="geometry_analysis_step.geometry_analysis_parameters.GeometryAnalysisParameters">GeometryAnalysisParameters</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TkGeometryAnalysis</span></code>, <a class="reference internal" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis" title="geometry_analysis_step.geometry_analysis.GeometryAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryAnalysis</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryAnalysisParameters</span></code></p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.GeometryAnalysis.analyze">
+<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis.html#GeometryAnalysis.analyze"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.analyze" title="Permalink to this definition">#</a></dt>
+<dd><p>Do any analysis of the output from this step.</p>
+<p>Also print important results to the local step.out file using
+“printer”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>indent</strong> (<em>str</em>) – An extra indentation for the output</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.GeometryAnalysis.description_text">
+<span class="sig-name descname"><span class="pre">description_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">P</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis.html#GeometryAnalysis.description_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.description_text" title="Permalink to this definition">#</a></dt>
+<dd><p>Create the text description of what this step will do.
+The dictionary of control values is passed in as P so that
+the code can test values, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>P</strong> (<em>dict</em>) – An optional dictionary of the current values of the control
+parameters.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A description of the current step.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.GeometryAnalysis.git_revision">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">git_revision</span></span><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.git_revision" title="Permalink to this definition">#</a></dt>
+<dd><p>The git version of this module.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.GeometryAnalysis.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis.html#GeometryAnalysis.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.run" title="Permalink to this definition">#</a></dt>
+<dd><p>Run a Geometry Analysis step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The next node object in the flowchart.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>seamm.Node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.GeometryAnalysis.version">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">version</span></span><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.version" title="Permalink to this definition">#</a></dt>
+<dd><p>The semantic version of this module.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.angle">
+<span class="sig-prename descclassname"><span class="pre">geometry_analysis_step.geometry_analysis.</span></span><span class="sig-name descname"><span class="pre">angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis.html#angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.angle" title="Permalink to this definition">#</a></dt>
+<dd><p>The angle in degrees given the three points.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.dihedral">
+<span class="sig-prename descclassname"><span class="pre">geometry_analysis_step.geometry_analysis.</span></span><span class="sig-name descname"><span class="pre">dihedral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis.html#dihedral"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.dihedral" title="Permalink to this definition">#</a></dt>
+<dd><p>Praxeolitic formula
+1 sqrt, 1 cross product
+<a class="reference external" href="https://stackoverflow.com/questions/20305272/dihedral-torsion-angle-from-four-points-in-cartesian-coordinates-in-python">https://stackoverflow.com/questions/20305272/dihedral-torsion-angle-from-four-points-in-cartesian-coordinates-in-python</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.distance">
+<span class="sig-prename descclassname"><span class="pre">geometry_analysis_step.geometry_analysis.</span></span><span class="sig-name descname"><span class="pre">distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis.html#distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.distance" title="Permalink to this definition">#</a></dt>
+<dd><p>The distance between two points.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis.oop">
+<span class="sig-prename descclassname"><span class="pre">geometry_analysis_step.geometry_analysis.</span></span><span class="sig-name descname"><span class="pre">oop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis.html#oop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis.oop" title="Permalink to this definition">#</a></dt>
+<dd><p>The Wilson out-of-plane angle.</p>
+</dd></dl>
+
+</section>
+<section id="module-geometry_analysis_step.geometry_analysis_parameters">
+<span id="geometry-analysis-step-geometry-analysis-parameters-module"></span><h2>geometry_analysis_step.geometry_analysis_parameters module<a class="headerlink" href="#module-geometry_analysis_step.geometry_analysis_parameters" title="Permalink to this heading">#</a></h2>
+<p>Control parameters for the Geometry Analysis step in a SEAMM flowchart</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis_parameters.GeometryAnalysisParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geometry_analysis_step.geometry_analysis_parameters.</span></span><span class="sig-name descname"><span class="pre">GeometryAnalysisParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">defaults</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis_parameters.html#GeometryAnalysisParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis_parameters.GeometryAnalysisParameters" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Parameters</span></code></p>
+<p>The control parameters for Geometry Analysis.</p>
+<p>You need to replace the “time” entry in dictionary below these comments with the
+definitions of parameters to control this step. The keys are parameters for the
+current plugin,the values are dictionaries as outlined below.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
+        <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;default_units&quot;</span><span class="p">:</span> <span class="s2">&quot;ps&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;enumeration&quot;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(),</span>
+        <span class="s2">&quot;format_string&quot;</span><span class="p">:</span> <span class="s2">&quot;.1f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Simulation time:&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help_text&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;The time to simulate in the dynamics run.&quot;</span><span class="p">)</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl>
+<dt>parameters<span class="classifier">{str: {str: str}}</span></dt><dd><p>A dictionary containing the parameters for the current step.
+Each key of the dictionary is a dictionary that contains the
+the following keys:</p>
+</dd>
+<dt>parameters[“default”] :</dt><dd><p>The default value of the parameter, used to reset it.</p>
+</dd>
+<dt>parameters[“kind”]<span class="classifier">enum()</span></dt><dd><p>Specifies the kind of a variable. One of  “integer”, “float”, “string”,
+“boolean”, or “enum”</p>
+<p>While the “kind” of a variable might be a numeric value, it may still have
+enumerated custom values meaningful to the user. For instance, if the parameter
+is a convergence criterion for an optimizer, custom values like “normal”,
+“precise”, etc, might be adequate. In addition, any parameter can be set to a
+variable of expression, indicated by having “$” as the first character in the
+field. For example, $OPTIMIZER_CONV.</p>
+</dd>
+<dt>parameters[“default_units”]<span class="classifier">str</span></dt><dd><p>The default units, used for resetting the value.</p>
+</dd>
+<dt>parameters[“enumeration”]: tuple</dt><dd><p>A tuple of enumerated values.</p>
+</dd>
+<dt>parameters[“format_string”]: str</dt><dd><p>A format string for “pretty” output.</p>
+</dd>
+<dt>parameters[“description”]: str</dt><dd><p>A short string used as a prompt in the GUI.</p>
+</dd>
+<dt>parameters[“help_text”]: str</dt><dd><p>A longer string to display as help for the user.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryAnalysis</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">TkGeometryAnalysis</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryAnalysis</span></code>, <a class="reference internal" href="#geometry_analysis_step.geometry_analysis_parameters.GeometryAnalysisParameters" title="geometry_analysis_step.geometry_analysis_parameters.GeometryAnalysisParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryAnalysisParameters</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Geometry</span></code></p>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis_parameters.GeometryAnalysisParameters.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'angle</span> <span class="pre">table':</span> <span class="pre">{'default':</span> <span class="pre">'angles',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Angle</span> <span class="pre">table:',</span> <span class="pre">'enumeration':</span> <span class="pre">('angles',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">table</span> <span class="pre">to</span> <span class="pre">output</span> <span class="pre">angles.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'atom</span> <span class="pre">indices</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Term</span> <span class="pre">using</span> <span class="pre">indices',</span> <span class="pre">'enumeration':</span> <span class="pre">('atom</span> <span class="pre">indices)',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">column</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">atom</span> <span class="pre">indices,</span> <span class="pre">e.g.</span> <span class="pre">1-3.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'bond</span> <span class="pre">table':</span> <span class="pre">{'default':</span> <span class="pre">'bonds',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Bond</span> <span class="pre">table:',</span> <span class="pre">'enumeration':</span> <span class="pre">('bonds',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">table</span> <span class="pre">to</span> <span class="pre">output</span> <span class="pre">bonds.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'dihedral</span> <span class="pre">table':</span> <span class="pre">{'default':</span> <span class="pre">'dihedrals',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Dihedral</span> <span class="pre">table:',</span> <span class="pre">'enumeration':</span> <span class="pre">('dihedrals',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">table</span> <span class="pre">to</span> <span class="pre">output</span> <span class="pre">dihedrals.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'el1</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Atom1</span> <span class="pre">element',</span> <span class="pre">'enumeration':</span> <span class="pre">('El1',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">column</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">first</span> <span class="pre">atom</span> <span class="pre">symbol.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'el2</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Atom2</span> <span class="pre">element',</span> <span class="pre">'enumeration':</span> <span class="pre">('El2',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">column</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">second</span> <span class="pre">atom</span> <span class="pre">symbol.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'el3</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Atom3</span> <span class="pre">element',</span> <span class="pre">'enumeration':</span> <span class="pre">('El3',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">column</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">third</span> <span class="pre">atom</span> <span class="pre">symbol.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'el4</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'',</span> <span class="pre">'enumeration':</span> <span class="pre">('El4',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">column</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">fourth</span> <span class="pre">atom</span> <span class="pre">symbol.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'id</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'id</span> <span class="pre">column:',</span> <span class="pre">'enumeration':</span> <span class="pre">('Molecule</span> <span class="pre">ID',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'Column</span> <span class="pre">to</span> <span class="pre">id</span> <span class="pre">the</span> <span class="pre">molecule.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'ids':</span> <span class="pre">{'default':</span> <span class="pre">'&lt;system.name&gt;',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Molecule</span> <span class="pre">id:',</span> <span class="pre">'enumeration':</span> <span class="pre">('&lt;system.name&gt;',</span> <span class="pre">'&lt;configuration.name&gt;'),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">name</span> <span class="pre">to</span> <span class="pre">use</span> <span class="pre">as</span> <span class="pre">molecule</span> <span class="pre">id.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'indx1</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Atom1</span> <span class="pre">index',</span> <span class="pre">'enumeration':</span> <span class="pre">('Indx1',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">column</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">first</span> <span class="pre">atom</span> <span class="pre">index.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'indx2</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Atom2</span> <span class="pre">index',</span> <span class="pre">'enumeration':</span> <span class="pre">('Indx2',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">column</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">second</span> <span class="pre">atom</span> <span class="pre">index.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'indx3</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Atom3</span> <span class="pre">index',</span> <span class="pre">'enumeration':</span> <span class="pre">('Indx3',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">column</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">third</span> <span class="pre">atom</span> <span class="pre">index.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'indx4</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Atom4</span> <span class="pre">index',</span> <span class="pre">'enumeration':</span> <span class="pre">('Indx4',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">column</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">fourth</span> <span class="pre">atom</span> <span class="pre">index.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'only</span> <span class="pre">first</span> <span class="pre">id':</span> <span class="pre">{'default':</span> <span class="pre">'yes',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'First</span> <span class="pre">id,</span> <span class="pre">then</span> <span class="pre">blanks:',</span> <span class="pre">'enumeration':</span> <span class="pre">('yes',</span> <span class="pre">'no'),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'Whether</span> <span class="pre">to</span> <span class="pre">put</span> <span class="pre">just</span> <span class="pre">the</span> <span class="pre">first</span> <span class="pre">id</span> <span class="pre">followed</span> <span class="pre">by</span> <span class="pre">empty</span> <span class="pre">cells.',</span> <span class="pre">'kind':</span> <span class="pre">'boolean'},</span> <span class="pre">'out-of-plane</span> <span class="pre">table':</span> <span class="pre">{'default':</span> <span class="pre">'out-of-planes',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Out-Of-Plane</span> <span class="pre">table:',</span> <span class="pre">'enumeration':</span> <span class="pre">('out-of-planes',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">table</span> <span class="pre">to</span> <span class="pre">output</span> <span class="pre">out-of-planes.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'results':</span> <span class="pre">{'default':</span> <span class="pre">{},</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'results',</span> <span class="pre">'enumeration':</span> <span class="pre">(),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">results</span> <span class="pre">to</span> <span class="pre">save</span> <span class="pre">to</span> <span class="pre">variables</span> <span class="pre">or</span> <span class="pre">in</span> <span class="pre">tables.',</span> <span class="pre">'kind':</span> <span class="pre">'dictionary'},</span> <span class="pre">'specification':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Bonds,</span> <span class="pre">angles,...:',</span> <span class="pre">'enumeration':</span> <span class="pre">(),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'A</span> <span class="pre">string</span> <span class="pre">listing</span> <span class="pre">of</span> <span class="pre">bonds,</span> <span class="pre">angle,</span> <span class="pre">torsions,</span> <span class="pre">and</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">planes</span> <span class="pre">separated</span> <span class="pre">by</span> <span class="pre">commas</span> <span class="pre">and/or</span> <span class="pre">blanks.</span> <span class="pre">The</span> <span class="pre">atoms</span> <span class="pre">are</span> <span class="pre">numbered</span> <span class="pre">from</span> <span class="pre">1.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'table':</span> <span class="pre">{'default':</span> <span class="pre">'valence</span> <span class="pre">terms',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Table:',</span> <span class="pre">'enumeration':</span> <span class="pre">('valence</span> <span class="pre">terms',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">table</span> <span class="pre">to</span> <span class="pre">output</span> <span class="pre">valence</span> <span class="pre">terms.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'table</span> <span class="pre">output':</span> <span class="pre">{'default':</span> <span class="pre">'none',</span> <span class="pre">'description':</span> <span class="pre">'Table</span> <span class="pre">output:',</span> <span class="pre">'enumeration':</span> <span class="pre">('none',</span> <span class="pre">'to</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">table',</span> <span class="pre">'each</span> <span class="pre">term</span> <span class="pre">to</span> <span class="pre">separate</span> <span class="pre">tables'),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'Whether</span> <span class="pre">and</span> <span class="pre">how</span> <span class="pre">to</span> <span class="pre">output</span> <span class="pre">to</span> <span class="pre">tables.',</span> <span class="pre">'kind':</span> <span class="pre">'enum'},</span> <span class="pre">'target':</span> <span class="pre">{'default':</span> <span class="pre">'all',</span> <span class="pre">'description':</span> <span class="pre">'Target:',</span> <span class="pre">'enumeration':</span> <span class="pre">('all',</span> <span class="pre">'bonds',</span> <span class="pre">'angles',</span> <span class="pre">'dihedrals',</span> <span class="pre">'bonds</span> <span class="pre">and</span> <span class="pre">angles',</span> <span class="pre">'specified</span> <span class="pre">terms'),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'What</span> <span class="pre">geometric</span> <span class="pre">parameters</span> <span class="pre">to</span> <span class="pre">calculate.',</span> <span class="pre">'kind':</span> <span class="pre">'enum'},</span> <span class="pre">'term</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'Term',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Term</span> <span class="pre">using</span> <span class="pre">elements',</span> <span class="pre">'enumeration':</span> <span class="pre">('Term',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">column</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">term</span> <span class="pre">using</span> <span class="pre">elements,</span> <span class="pre">e.g.</span> <span class="pre">C-H.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'term</span> <span class="pre">type</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Type</span> <span class="pre">of</span> <span class="pre">term',</span> <span class="pre">'enumeration':</span> <span class="pre">('Type</span> <span class="pre">of</span> <span class="pre">term',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">type</span> <span class="pre">of</span> <span class="pre">term:</span> <span class="pre">bond,</span> <span class="pre">angle,</span> <span class="pre">dihedral,</span> <span class="pre">oop.',</span> <span class="pre">'kind':</span> <span class="pre">'string'},</span> <span class="pre">'value</span> <span class="pre">column':</span> <span class="pre">{'default':</span> <span class="pre">'Value</span> <span class="pre">(Å</span> <span class="pre">or</span> <span class="pre">º)',</span> <span class="pre">'default_units':</span> <span class="pre">'',</span> <span class="pre">'description':</span> <span class="pre">'Value</span> <span class="pre">of</span> <span class="pre">term',</span> <span class="pre">'enumeration':</span> <span class="pre">('Value</span> <span class="pre">(Å</span> <span class="pre">or</span> <span class="pre">º)',),</span> <span class="pre">'format_string':</span> <span class="pre">'',</span> <span class="pre">'help_text':</span> <span class="pre">'The</span> <span class="pre">column</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">term.',</span> <span class="pre">'kind':</span> <span class="pre">'string'}}</span></em><a class="headerlink" href="#geometry_analysis_step.geometry_analysis_parameters.GeometryAnalysisParameters.parameters" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geometry_analysis_step.geometry_analysis_step">
+<span id="geometry-analysis-step-geometry-analysis-step-module"></span><h2>geometry_analysis_step.geometry_analysis_step module<a class="headerlink" href="#module-geometry_analysis_step.geometry_analysis_step" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geometry_analysis_step.geometry_analysis_step.</span></span><span class="sig-name descname"><span class="pre">GeometryAnalysisStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flowchart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gui</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis_step.html#GeometryAnalysisStep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class needed for the stevedore integration.</p>
+<p>This must provide a <cite>description()</cite> method that returns a dict containing a
+description of this node, and <cite>create_node()</cite> and <cite>create_tk_node()</cite> methods
+for creating the graphical and non-graphical nodes.</p>
+<p>The dictionary for the description is the class variable just below these
+comments. The fields are as follows:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>my_description<span class="classifier">{str, str}</span></dt><dd><p>A human-readable description of this step. It can be
+several lines long, and needs to be clear to non-expert users.
+It contains the following keys: description, group, name.</p>
+</dd>
+<dt>my_description[“description”]<span class="classifier">tuple</span></dt><dd><p>A description of the Geometry Analysis step. It must be
+clear to non-experts.</p>
+</dd>
+<dt>my_description[“group”]<span class="classifier">str</span></dt><dd><p>Which group in the menus to put this step. If the group does
+not exist it will be created. Common groups are “Building”,
+“Control”, “Custom”, “Data”, and “Simulations”.</p>
+</dd>
+<dt>my_description[“name”]<span class="classifier">str</span></dt><dd><p>The name of this step, to be displayed in the menus.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep.create_node">
+<span class="sig-name descname"><span class="pre">create_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flowchart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis_step.html#GeometryAnalysisStep.create_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep.create_node" title="Permalink to this definition">#</a></dt>
+<dd><p>Create and return the new node object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flowchart</strong> (<em>seamm.Node</em>) – A non-graphical SEAMM node</p></li>
+<li><p><strong>**kwargs</strong> (<em>keyword arguments</em>) – Various keyword arguments such as title, namespace or
+extension representing the title displayed in the flowchart,
+the namespace for the plugins of a subflowchart and
+the extension, respectively.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis" title="geometry_analysis_step.geometry_analysis.GeometryAnalysis">GeometryAnalysis</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep.create_tk_node">
+<span class="sig-name descname"><span class="pre">create_tk_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis_step.html#GeometryAnalysisStep.create_tk_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep.create_tk_node" title="Permalink to this definition">#</a></dt>
+<dd><p>Create and return the graphical Tk node object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>canvas</strong> (<em>tk.Canvas</em>) – The Tk Canvas widget</p></li>
+<li><p><strong>**kwargs</strong> (<em>keyword arguments</em>) – Various keyword arguments such as tk_flowchart, node, x, y, w, h
+representing a graphical flowchart object, a non-graphical node for
+a step, and dimensions of the graphical node.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis" title="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis">TkGeometryAnalysis</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep.description">
+<span class="sig-name descname"><span class="pre">description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/geometry_analysis_step.html#GeometryAnalysisStep.description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep.description" title="Permalink to this definition">#</a></dt>
+<dd><p>Return a description of what this step does.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>description</strong></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict(str, str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep.my_description">
+<span class="sig-name descname"><span class="pre">my_description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'description':</span> <span class="pre">'An</span> <span class="pre">interface</span> <span class="pre">for</span> <span class="pre">Geometry</span> <span class="pre">Analysis',</span> <span class="pre">'group':</span> <span class="pre">'Analysis',</span> <span class="pre">'name':</span> <span class="pre">'Geometry</span> <span class="pre">Analysis'}</span></em><a class="headerlink" href="#geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep.my_description" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geometry_analysis_step.metadata">
+<span id="geometry-analysis-step-metadata-module"></span><h2>geometry_analysis_step.metadata module<a class="headerlink" href="#module-geometry_analysis_step.metadata" title="Permalink to this heading">#</a></h2>
+<p>This file contains metadata describing the results from GeometryAnalysis</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="geometry_analysis_step.metadata.metadata">
+<span class="sig-prename descclassname"><span class="pre">geometry_analysis_step.metadata.</span></span><span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'results':</span> <span class="pre">{'total_energy':</span> <span class="pre">{'calculation':</span> <span class="pre">['energy',</span> <span class="pre">'optimization'],</span> <span class="pre">'description':</span> <span class="pre">'The</span> <span class="pre">total</span> <span class="pre">energy',</span> <span class="pre">'dimensionality':</span> <span class="pre">'scalar',</span> <span class="pre">'property':</span> <span class="pre">'total</span> <span class="pre">energy#GeometryAnalysis#{model}',</span> <span class="pre">'type':</span> <span class="pre">'float',</span> <span class="pre">'units':</span> <span class="pre">'E_h'}}}</span></em><a class="headerlink" href="#geometry_analysis_step.metadata.metadata" title="Permalink to this definition">#</a></dt>
+<dd><p>Properties that GeometryAnalysis produces.
+<cite>metadata[“results”]</cite> describes the results that this step can produce. It is a
+dictionary where the keys are the internal names of the results within this step, and
+the values are a dictionary describing the result. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;results&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;total_energy&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;calculation&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;energy&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;optimization&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The total energy&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dimensionality&quot;</span><span class="p">:</span> <span class="s2">&quot;scalar&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;methods&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;ccsd&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ccsd(t)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dft&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;hf&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;property&quot;</span><span class="p">:</span> <span class="s2">&quot;total energy#GeometryAnalysis#</span><span class="si">{model}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;E_h&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="fields">
+<h3>Fields<a class="headerlink" href="#fields" title="Permalink to this heading">#</a></h3>
+<dl class="simple">
+<dt>calculation<span class="classifier">[str]</span></dt><dd><p>Optional metadata describing what subtype of the step produces this result.
+The subtypes are completely arbitrary, but often they are types of calculations
+which is why this is name <cite>calculation</cite>. To use this, the step or a substep
+define <cite>self._calculation</cite> as a value. That value is used to select only the
+results with that value in this field.</p>
+</dd>
+<dt>description<span class="classifier">str</span></dt><dd><p>A human-readable description of the result.</p>
+</dd>
+<dt>dimensionality<span class="classifier">str</span></dt><dd><p>The dimensions of the data. The value can be “scalar” or an array definition
+of the form “[dim1, dim2,…]”. Symmetric tringular matrices are denoted
+“triangular[n,n]”. The dimensions can be integers, other scalar
+results, or standard parameters such as <cite>n_atoms</cite>. For example, ‘[3]’,
+[3, n_atoms], or “triangular[n_aos, n_aos]”.</p>
+</dd>
+<dt>methods<span class="classifier">str</span></dt><dd><p>Optional metadata like the <cite>calculation</cite> data. <cite>methods</cite> provides a second
+level of filtering, often used for the Hamiltionian for <em>ab initio</em> calculations
+where some properties may or may not be calculated depending on the type of
+theory.</p>
+</dd>
+<dt>property<span class="classifier">str</span></dt><dd><p>An optional definition of the property for storing this result. Must be one of
+the standard properties defined either in SEAMM or in this steps property
+metadata in <cite>data/properties.csv</cite>.</p>
+</dd>
+<dt>type<span class="classifier">str</span></dt><dd><p>The type of the data: string, integer, or float.</p>
+</dd>
+<dt>units<span class="classifier">str</span></dt><dd><p>Optional units for the result. If present, the value should be in these units.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+<section id="module-geometry_analysis_step.tk_geometry_analysis">
+<span id="geometry-analysis-step-tk-geometry-analysis-module"></span><h2>geometry_analysis_step.tk_geometry_analysis module<a class="headerlink" href="#module-geometry_analysis_step.tk_geometry_analysis" title="Permalink to this heading">#</a></h2>
+<p>The graphical part of a Geometry Analysis step</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">geometry_analysis_step.tk_geometry_analysis.</span></span><span class="sig-name descname"><span class="pre">TkGeometryAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tk_flowchart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/tk_geometry_analysis.html#TkGeometryAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TkNode</span></code></p>
+<p>The graphical part of a Geometry Analysis step in a flowchart.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.tk_flowchart">
+<span class="sig-name descname"><span class="pre">tk_flowchart</span></span><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.tk_flowchart" title="Permalink to this definition">#</a></dt>
+<dd><p>The flowchart that we belong to.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TkFlowchart = None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.node">
+<span class="sig-name descname"><span class="pre">node</span></span><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.node" title="Permalink to this definition">#</a></dt>
+<dd><p>The corresponding node of the non-graphical flowchart</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Node = None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.namespace">
+<span class="sig-name descname"><span class="pre">namespace</span></span><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.namespace" title="Permalink to this definition">#</a></dt>
+<dd><p>The namespace of the current step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.tk_subflowchart">
+<span class="sig-name descname"><span class="pre">tk_subflowchart</span></span><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.tk_subflowchart" title="Permalink to this definition">#</a></dt>
+<dd><p>A graphical Flowchart representing a subflowchart</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TkFlowchart</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.canvas">
+<span class="sig-name descname"><span class="pre">canvas</span></span><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.canvas" title="Permalink to this definition">#</a></dt>
+<dd><p>The Tk Canvas to draw on</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tkCanvas = None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.dialog">
+<span class="sig-name descname"><span class="pre">dialog</span></span><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.dialog" title="Permalink to this definition">#</a></dt>
+<dd><p>The Pmw dialog object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dialog</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.x" title="Permalink to this definition">#</a></dt>
+<dd><p>The x-coordinate of the center of the picture of the node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int = None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.y" title="Permalink to this definition">#</a></dt>
+<dd><p>The y-coordinate of the center of the picture of the node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int = None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.w">
+<span class="sig-name descname"><span class="pre">w</span></span><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.w" title="Permalink to this definition">#</a></dt>
+<dd><p>The width in pixels of the picture of the node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int = 200</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.h">
+<span class="sig-name descname"><span class="pre">h</span></span><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.h" title="Permalink to this definition">#</a></dt>
+<dd><p>The height in pixels of the picture of the node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int = 50</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">self[widget]</span></span></dt>
+<dd><p>A dictionary of tk widgets built using the information
+contained in Geometry Analysis_parameters.py</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryAnalysis</span></code>, <a class="reference internal" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis" title="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TkGeometryAnalysis</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">GeometryAnalysisParameters</span></code></p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.create_dialog">
+<span class="sig-name descname"><span class="pre">create_dialog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/tk_geometry_analysis.html#TkGeometryAnalysis.create_dialog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.create_dialog" title="Permalink to this definition">#</a></dt>
+<dd><p>Create the dialog. A set of widgets will be chosen by default
+based on what is specified in the Geometry Analysis_parameters
+module.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.reset_dialog" title="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.reset_dialog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TkGeometryAnalysis.reset_dialog</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.reset_columns">
+<span class="sig-name descname"><span class="pre">reset_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/tk_geometry_analysis.html#TkGeometryAnalysis.reset_columns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.reset_columns" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.reset_dialog">
+<span class="sig-name descname"><span class="pre">reset_dialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">widget</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/tk_geometry_analysis.html#TkGeometryAnalysis.reset_dialog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.reset_dialog" title="Permalink to this definition">#</a></dt>
+<dd><p>Layout the widgets in the dialog.
+:param widget:
+:type widget: Tk Widget = None</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.create_dialog" title="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.create_dialog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TkGeometryAnalysis.create_dialog</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.right_click">
+<span class="sig-name descname"><span class="pre">right_click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/geometry_analysis_step/tk_geometry_analysis.html#TkGeometryAnalysis.right_click"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.right_click" title="Permalink to this definition">#</a></dt>
+<dd><p>Handles the right click event on the node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>Tk Event</em>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TkGeometryAnalysis.edit</span></code></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-geometry_analysis_step">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-geometry_analysis_step" title="Permalink to this heading">#</a></h2>
+<p>geometry_analysis_step
+A SEAMM plug-in for analysis of the geometry of particularly small molecules</p>
+</section>
+</section>
+
+
+            </article>
+            
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="modules.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">geometry_analysis_step</p>
+      </div>
+  </a>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-geometry_analysis_step.find_mopac">
+   geometry_analysis_step.find_mopac module
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry_analysis_step.find_mopac.find_mopac">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       find_mopac()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-geometry_analysis_step.geometry_analysis">
+   geometry_analysis_step.geometry_analysis module
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       GeometryAnalysis
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.parser">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysis.parser
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.options">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysis.options
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.subflowchart">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysis.subflowchart
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.parameters">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysis.parameters
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.analyze">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysis.analyze()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.description_text">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysis.description_text()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.git_revision">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysis.git_revision
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.run">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysis.run()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.GeometryAnalysis.version">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysis.version
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.angle">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       angle()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.dihedral">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       dihedral()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.distance">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       distance()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis.oop">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       oop()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-geometry_analysis_step.geometry_analysis_parameters">
+   geometry_analysis_step.geometry_analysis_parameters module
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis_parameters.GeometryAnalysisParameters">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       GeometryAnalysisParameters
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis_parameters.GeometryAnalysisParameters.parameters">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysisParameters.parameters
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-geometry_analysis_step.geometry_analysis_step">
+   geometry_analysis_step.geometry_analysis_step module
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       GeometryAnalysisStep
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep.create_node">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysisStep.create_node()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep.create_tk_node">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysisStep.create_tk_node()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep.description">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysisStep.description()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.geometry_analysis_step.GeometryAnalysisStep.my_description">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GeometryAnalysisStep.my_description
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-geometry_analysis_step.metadata">
+   geometry_analysis_step.metadata module
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry_analysis_step.metadata.metadata">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       metadata
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-geometry_analysis_step.tk_geometry_analysis">
+   geometry_analysis_step.tk_geometry_analysis module
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       TkGeometryAnalysis
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.tk_flowchart">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.tk_flowchart
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.node">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.node
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.namespace">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.namespace
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.tk_subflowchart">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.tk_subflowchart
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.canvas">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.canvas
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.dialog">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.dialog
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.x">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.x
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.y">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.y
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.w">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.w
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.h">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.h
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.create_dialog">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.create_dialog()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.reset_columns">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.reset_columns()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.reset_dialog">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.reset_dialog()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometry_analysis_step.tk_geometry_analysis.TkGeometryAnalysis.right_click">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TkGeometryAnalysis.right_click()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-geometry_analysis_step">
+   Module contents
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+<div class="tocsection sourcelink">
+    <a href="../_sources/api/geometry_analysis_step.rst.txt">
+        <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+</div>
+
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+          </div>
+        </footer>
+        
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  <footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <table id="t">
+  <tbody>
+    <tr>
+      <td class="column_left">
+	<a href="https://molssi.org/" target="_blank" title="Go to MolSSI in a new tab">
+	  <img src="/_images/MolSSI.jpg" alt="The MolSSI" style="border:0;">
+	</a>
+      </td>
+      <td class="column">
+	&copy; Copyright 2023, the Molecular Sciences Software Institute,
+	which receives funding from the National Science Foundation under awards OAC-1547580
+	and CHE-2136142.
+      </td>
+      <td class="column_right">
+	<a href="https://nsf.gov/" target="_blank" title="Go to the NSF in a new tab">
+	  <img src="/_images/NSF_4-Color_bitmap_Logo.png" alt="The NSF" style="border:0;">
+	</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  
+</div>
+  </footer>
+  </body>
+</html>

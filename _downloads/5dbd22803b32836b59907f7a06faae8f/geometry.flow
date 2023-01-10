@@ -1,0 +1,376 @@
+#!/usr/bin/env run_flowchart
+!MolSSI flowchart 2.0
+#metadata
+{
+    "title": "Geometry analysis",
+    "description": "Reads the given molecular file, uses the Lewis structure step from MOPAC to create the bonds for the structure since many structure files don't have bonding information, and then does a simple analysis of the bonds, valence angles, dihedral angles, and out-of-plane angles printing the results to the output.\n",
+    "keywords": [
+        ""
+    ],
+    "creators": [
+        {
+            "name": "Saxe, Paul",
+            "orcid": "0000-0002-8641-9448",
+            "affiliation": "The Molecular Sciences Software Institute (MolSSI)"
+        }
+    ],
+    "sha256": "b7d72467ddc3a847e02210d4234db7368e039253f22bee2053199990fe58a207",
+    "sha256_strict": "5da7bc3ae6bfb80f05d5068cdbbf7721f8ddc58bf54a560681feb0e7c25b838f"
+}
+#flowchart
+{
+    "item": "object",
+    "module": "seamm.flowchart",
+    "class": "Flowchart",
+    "extension": null,
+    "nodes": [
+        {
+            "item": "object",
+            "module": "seamm.start_node",
+            "class": "StartNode",
+            "version": "2022.10.23+6.ga2a37fb.dirty",
+            "extension": null,
+            "attributes": {
+                "_tables": [],
+                "_title": "Start",
+                "_uuid": 1,
+                "extension": null,
+                "_method": null,
+                "parameters": null,
+                "x": 150,
+                "y": 35,
+                "w": 200,
+                "h": 50
+            }
+        },
+        {
+            "item": "object",
+            "module": "control_parameters_step.control_parameters",
+            "class": "ControlParameters",
+            "version": "2022.6.6",
+            "extension": "Parameters",
+            "attributes": {
+                "_tables": [],
+                "_title": "Parameters",
+                "_uuid": 102062479192762892546524022834770366291,
+                "extension": "Parameters",
+                "_method": null,
+                "parameters": {
+                    "__class__": "ControlParametersParameters",
+                    "__module__": "control_parameters_step.control_parameters_parameters",
+                    "variables": {
+                        "value": {
+                            "filename": {
+                                "optional": "No",
+                                "type": "file",
+                                "nargs": "a single value",
+                                "overwrite": "No",
+                                "default": "",
+                                "choices": "[]",
+                                "help": "The filename for the structure"
+                            }
+                        },
+                        "units": null
+                    }
+                },
+                "x": 150,
+                "y": 105,
+                "w": 200,
+                "h": 50
+            }
+        },
+        {
+            "item": "object",
+            "module": "read_structure_step.read_structure",
+            "class": "ReadStructure",
+            "version": "2022.10.28+1.gf3c7bce.dirty",
+            "extension": "Read Structure",
+            "attributes": {
+                "_tables": [],
+                "_title": "Read Structure",
+                "_uuid": 78440681683301393522377262247144525465,
+                "extension": "Read Structure",
+                "_method": null,
+                "parameters": {
+                    "__class__": "ReadStructureParameters",
+                    "__module__": "read_structure_step.read_structure_parameters",
+                    "file": {
+                        "value": "$filename",
+                        "units": null
+                    },
+                    "file type": {
+                        "value": "from extension",
+                        "units": null
+                    },
+                    "add hydrogens": {
+                        "value": "yes",
+                        "units": null
+                    },
+                    "indices": {
+                        "value": "1:end",
+                        "units": null
+                    },
+                    "structure handling": {
+                        "value": "Overwrite the current configuration",
+                        "units": null
+                    },
+                    "subsequent structure handling": {
+                        "value": "Create a new system and configuration",
+                        "units": null
+                    },
+                    "system name": {
+                        "value": "$filename",
+                        "units": null
+                    },
+                    "configuration name": {
+                        "value": "initial",
+                        "units": null
+                    }
+                },
+                "x": 150,
+                "y": 175,
+                "w": 200,
+                "h": 50
+            }
+        },
+        {
+            "item": "object",
+            "module": "geometry_analysis_step.geometry_analysis",
+            "class": "GeometryAnalysis",
+            "version": "2022.12.24+0.g56231b7.dirty",
+            "extension": "Geometry Analysis",
+            "attributes": {
+                "_tables": [],
+                "_title": "Geometry Analysis",
+                "_uuid": 246152571081135402587867248685687398012,
+                "extension": "Geometry Analysis",
+                "_method": null,
+                "parameters": {
+                    "__class__": "GeometryAnalysisParameters",
+                    "__module__": "geometry_analysis_step.geometry_analysis_parameters",
+                    "target": {
+                        "value": "all",
+                        "units": null
+                    },
+                    "specification": {
+                        "value": "2-1, 3-1, 2-1-3, 4-1",
+                        "units": null
+                    },
+                    "table output": {
+                        "value": "none",
+                        "units": null
+                    },
+                    "id column": {
+                        "value": "Molecule ID",
+                        "units": null
+                    },
+                    "ids": {
+                        "value": "$filename.name",
+                        "units": null
+                    },
+                    "only first id": {
+                        "value": "yes",
+                        "units": null
+                    },
+                    "term type column": {
+                        "value": "Type of term",
+                        "units": null
+                    },
+                    "indx1 column": {
+                        "value": "",
+                        "units": null
+                    },
+                    "indx2 column": {
+                        "value": "",
+                        "units": null
+                    },
+                    "indx3 column": {
+                        "value": "",
+                        "units": null
+                    },
+                    "indx4 column": {
+                        "value": "",
+                        "units": null
+                    },
+                    "el1 column": {
+                        "value": "",
+                        "units": null
+                    },
+                    "el2 column": {
+                        "value": "",
+                        "units": null
+                    },
+                    "el3 column": {
+                        "value": "",
+                        "units": null
+                    },
+                    "el4 column": {
+                        "value": "",
+                        "units": null
+                    },
+                    "atom indices column": {
+                        "value": "",
+                        "units": null
+                    },
+                    "term column": {
+                        "value": "Term",
+                        "units": null
+                    },
+                    "value column": {
+                        "value": "Value (\u00c5 or \u00ba)",
+                        "units": null
+                    },
+                    "table": {
+                        "value": "valence terms",
+                        "units": null
+                    },
+                    "bond table": {
+                        "value": "bonds",
+                        "units": null
+                    },
+                    "angle table": {
+                        "value": "angles",
+                        "units": null
+                    },
+                    "dihedral table": {
+                        "value": "dihedrals",
+                        "units": null
+                    },
+                    "out-of-plane table": {
+                        "value": "out-of-planes",
+                        "units": null
+                    },
+                    "results": {
+                        "value": {
+                            "total_energy": {
+                                "property": "total energy#GeometryAnalysis#{model}"
+                            }
+                        },
+                        "units": null
+                    }
+                },
+                "x": 150,
+                "y": 315,
+                "w": 200,
+                "h": 50
+            }
+        },
+        {
+            "item": "object",
+            "module": "mopac_step.lewis_structure",
+            "class": "LewisStructure",
+            "version": "2022.11.18+8.g4a59f48.dirty",
+            "extension": "Lewis Structure",
+            "attributes": {
+                "_tables": [],
+                "_title": "Lewis Structure",
+                "_uuid": 268177165176176616126061660665765388087,
+                "extension": "Lewis Structure",
+                "_method": null,
+                "parameters": {
+                    "__class__": "LewisStructureParameters",
+                    "__module__": "mopac_step.lewis_structure_parameters",
+                    "atom cutoff": {
+                        "value": 30,
+                        "units": null
+                    },
+                    "use bonds": {
+                        "value": "yes",
+                        "units": null
+                    },
+                    "ignore errors": {
+                        "value": "no",
+                        "units": null
+                    },
+                    "on errors use connectivity": {
+                        "value": "yes",
+                        "units": null
+                    },
+                    "results": {
+                        "value": {},
+                        "units": null
+                    }
+                },
+                "x": 150,
+                "y": 245,
+                "w": 200,
+                "h": 50
+            }
+        }
+    ],
+    "edges": [
+        {
+            "item": "edge",
+            "node1": 1,
+            "node2": 102062479192762892546524022834770366291,
+            "edge_type": "execution",
+            "edge_subtype": "next",
+            "attributes": {
+                "arrow_id": 55,
+                "anchor1": "s",
+                "anchor2": "n",
+                "coords": [
+                    150,
+                    60,
+                    150,
+                    80
+                ]
+            }
+        },
+        {
+            "item": "edge",
+            "node1": 102062479192762892546524022834770366291,
+            "node2": 78440681683301393522377262247144525465,
+            "edge_type": "execution",
+            "edge_subtype": "next",
+            "attributes": {
+                "arrow_id": 15,
+                "anchor1": "s",
+                "anchor2": "n",
+                "coords": [
+                    150,
+                    130,
+                    150,
+                    150
+                ]
+            }
+        },
+        {
+            "item": "edge",
+            "node1": 78440681683301393522377262247144525465,
+            "node2": 268177165176176616126061660665765388087,
+            "edge_type": "execution",
+            "edge_subtype": "next",
+            "attributes": {
+                "arrow_id": 16,
+                "anchor1": "s",
+                "anchor2": "n",
+                "coords": [
+                    150,
+                    200,
+                    150,
+                    220
+                ]
+            }
+        },
+        {
+            "item": "edge",
+            "node1": 268177165176176616126061660665765388087,
+            "node2": 246152571081135402587867248685687398012,
+            "edge_type": "execution",
+            "edge_subtype": "next",
+            "attributes": {
+                "arrow_id": 34,
+                "anchor1": "s",
+                "anchor2": "n",
+                "coords": [
+                    150,
+                    270,
+                    150,
+                    290
+                ]
+            }
+        }
+    ]
+}
+#end
