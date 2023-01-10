@@ -72,10 +72,3 @@ html[data-theme="dark"] dt:target {
   width: 60px;
   vertical-align: middle;
 }
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
