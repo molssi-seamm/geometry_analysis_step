@@ -56,15 +56,6 @@ SEAMM database for the job.
 
 	 To the API Reference.
 
-Versions of this Documentation
-==============================
-
-.. raw:: html
-
-   <iframe
-   src="https://molssi-seamm.github.io/geometry_analysis_step/dev/versions.html"
-   title="Documentation Versions"  style="border:none;">
-   </iframe>
 
 .. toctree::
    :hidden:
@@ -75,3 +66,22 @@ Versions of this Documentation
    user_guide/index
    developer_guide/index
    api/index
+
+More Information
+================
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   authors
+   history
+
+Versions of this Documentation
+==============================
+
+.. raw:: html
+
+   <iframe
+   src="https://molssi-seamm.github.io/geometry_analysis_step/dev/versions.html"
+   title="Documentation Versions"  style="border:none;">
+   </iframe>
