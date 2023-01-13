@@ -10,8 +10,6 @@ name: Documentation
 #   docs:
 #    uses: molssi-seamm/devops/.github/workflows/Docs.yaml@main
 
-name: Sphinx build
-
 on: push
 
 jobs:
