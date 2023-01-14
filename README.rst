@@ -14,8 +14,8 @@ SEAMM Geometry Analysis Plug-in
    :target: https://codecov.io/gh/molssi-seamm/geometry_analysis_step
    :alt: Code Coverage
 
-.. image:: https://img.shields.io/lgtm/grade/python/g/molssi-seamm/geometry_analysis_step.svg?logo=lgtm&logoWidth=18
-   :target: https://lgtm.com/projects/g/molssi-seamm/geometry_analysis_step/context:python
+.. image:: https://github.com/molssi-seamm/quickmin_step/workflows/CodeQL/badge.svg
+   :target: https://github.com/molssi-seamm/quickmin_step/security/code-scanning
    :alt: Code Quality
 
 .. image:: https://github.com/molssi-seamm/geometry_analysis_step/workflows/Documentation/badge.svg
@@ -35,7 +35,16 @@ A SEAMM plug-in for analysis of the geometry of particularly small molecules
 Features
 --------
 
-* Please edit this section!
+The Geometric Analysis plug-in provides the following functionality:
+
+   #. Generating lists of all valence terms -- bonds, angles, dihedrals, and
+      out-of-planes -- plus their value for the current structure. This functionality
+      relies on the description of the bonds in the structure.
+   #. Creating lists of terms and their values as specified in the input. Note that in
+      this case the atoms do not need to be connected by bonds in the structure.
+   #. Printing the tables of results to the output.
+   #. Outputing the data to one or more tables.
+   #. Storing the data in the internal SEAMM database.
 
 Acknowledgements
 ----------------
