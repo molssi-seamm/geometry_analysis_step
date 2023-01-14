@@ -75,13 +75,3 @@ More Information
 
    authors
    history
-
-Versions of this Documentation
-==============================
-
-.. raw:: html
-
-   <iframe
-   src="https://molssi-seamm.github.io/geometry_analysis_step/dev/versions.html"
-   title="Documentation Versions"  style="border:none;">
-   </iframe>
