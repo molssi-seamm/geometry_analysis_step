@@ -59,16 +59,15 @@ html[data-theme="dark"] dt:target {
     background-color: #000000;
 }
 
-.column_left {
-  display: table-cell;
-  width: 60px;
-  vertical-align: middle;
+html .toctree-wrapper li[class^=toctree-l] {
+	list-style: circle;
 }
-.column {
-  display: table-cell;
+
+img:not(.logo__image, .footer_logo) {
+	padding: 20px;
 }
-.column_right {
-  display: table-cell;
-  width: 60px;
-  vertical-align: middle;
+
+
+.footer_logo {
+	max-height: 60px;
 }
