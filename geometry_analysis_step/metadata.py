@@ -1,5 +1,4 @@
-"""This file contains metadata describing the results from GeometryAnalysis
-"""
+"""This file contains metadata describing the results from GeometryAnalysis"""
 
 metadata = {}
 
@@ -66,15 +65,160 @@ units : str
     Optional units for the result. If present, the value should be in these units.
 """
 metadata["results"] = {
-    "total_energy": {
-        "calculation": [
-            "energy",
-            "optimization",
-        ],
-        "description": "The total energy",
-        "dimensionality": "scalar",
-        "property": "total energy#GeometryAnalysis#{model}",
+    "bond_lengths": {
+        "description": "The bond lengths",
+        "dimensionality": "[n_bonds]",
         "type": "float",
-        "units": "E_h",
+        "units": "Å",
+    },
+    "bond_orders": {
+        "description": "The bond orders",
+        "dimensionality": "[n_bonds]",
+        "type": "float",
+        "units": "",
+    },
+    "bond_index_i": {
+        "description": "The bond index i",
+        "dimensionality": "[n_bonds]",
+        "type": "integer",
+        "units": "",
+    },
+    "bond_index_j": {
+        "description": "The bond index j",
+        "dimensionality": "[n_bonds]",
+        "type": "integer",
+        "units": "",
+    },
+    "angles": {
+        "description": "The angles",
+        "dimensionality": "[n_angles]",
+        "type": "float",
+        "units": "º",
+    },
+    "angle_bond_orders_ij": {
+        "description": "The bond orders of i, j",
+        "dimensionality": "[n_angles]",
+        "type": "float",
+        "units": "",
+    },
+    "angle_bond_orders_jk": {
+        "description": "The bond orders of j, k",
+        "dimensionality": "[n_angles]",
+        "type": "float",
+        "units": "",
+    },
+    "angle_index_i": {
+        "description": "The angle index i",
+        "dimensionality": "[n_angles]",
+        "type": "integer",
+        "units": "",
+    },
+    "angle_index_j": {
+        "description": "The angle index j",
+        "dimensionality": "[n_angles]",
+        "type": "integer",
+        "units": "",
+    },
+    "angle_index_k": {
+        "description": "The angle index k",
+        "dimensionality": "[n_angles]",
+        "type": "integer",
+        "units": "",
+    },
+    "dihedrals": {
+        "description": "The dihedrals",
+        "dimensionality": "[n_dihedrals]",
+        "type": "float",
+        "units": "º",
+    },
+    "dihedral_bond_orders_ij": {
+        "description": "The bond orders of i, j",
+        "dimensionality": "[n_dihedrals]",
+        "type": "float",
+        "units": "",
+    },
+    "dihedral_bond_orders_jk": {
+        "description": "The bond orders of j, k",
+        "dimensionality": "[n_dihedrals]",
+        "type": "float",
+        "units": "",
+    },
+    "dihedral_bond_orders_kl": {
+        "description": "The bond orders of k, l",
+        "dimensionality": "[n_dihedrals]",
+        "type": "float",
+        "units": "",
+    },
+    "dihedral_index_i": {
+        "description": "The dihedral index i",
+        "dimensionality": "[n_dihedrals]",
+        "type": "integer",
+        "units": "",
+    },
+    "dihedral_index_j": {
+        "description": "The dihedral index j",
+        "dimensionality": "[n_dihedrals]",
+        "type": "integer",
+        "units": "",
+    },
+    "dihedral_index_k": {
+        "description": "The dihedral index k",
+        "dimensionality": "[n_dihedrals]",
+        "type": "integer",
+        "units": "",
+    },
+    "dihedral_index_l": {
+        "description": "The dihedral index l",
+        "dimensionality": "[n_dihedrals]",
+        "type": "integer",
+        "units": "",
+    },
+    "oops": {
+        "description": "The oops",
+        "dimensionality": "[n_oops]",
+        "type": "float",
+        "units": "º",
+    },
+    "oop_bond_orders_ij": {
+        "description": "The bond orders of i, j",
+        "dimensionality": "[n_oops]",
+        "type": "float",
+        "units": "",
+    },
+    "oop_bond_orders_jk": {
+        "description": "The bond orders of j, k",
+        "dimensionality": "[n_oops]",
+        "type": "float",
+        "units": "",
+    },
+    "oop_bond_orders_kl": {
+        "description": "The bond orders of k, l",
+        "dimensionality": "[n_oops]",
+        "type": "float",
+        "units": "",
+    },
+    "oop_index_i": {
+        "description": "The oop index i",
+        "dimensionality": "[n_oops]",
+        "type": "integer",
+        "units": "",
+    },
+    "oop_index_j": {
+        "description": "The oop index j",
+        "dimensionality": "[n_oops]",
+        "type": "integer",
+        "units": "",
+    },
+    "oop_index_k": {
+        "description": "The oop index k",
+        "dimensionality": "[n_oops]",
+        "type": "integer",
+        "units": "",
+    },
+    "oop_index_l": {
+        "description": "The oop index l",
+        "dimensionality": "[n_oops]",
+        "type": "integer",
+        "units": "",
     },
 }
