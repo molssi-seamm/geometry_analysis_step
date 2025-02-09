@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""Non-graphical part of the Geometry Analysis step in a SEAMM flowchart
-"""
+"""Non-graphical part of the Geometry Analysis step in a SEAMM flowchart"""
 
 import logging
 from pathlib import Path
@@ -214,6 +213,9 @@ class GeometryAnalysis(seamm.Node):
         seamm.Node
             The next node object in the flowchart.
         """
+        # Results data
+        data = {}
+
         bondorder_text = ("-0-", "-", "=", "#", "-4-", "-5-")
 
         next_node = super().run(printer)
@@ -465,10 +467,13 @@ class GeometryAnalysis(seamm.Node):
 
         # ... and the bond orders for printing
         bondorders = {}
+        orders = {}
         for i, j, order in zip(iat, jat, bonds["bondorder"]):
             txt = bondorder_text[order]
             bondorders[(i, j)] = txt
             bondorders[(j, i)] = txt
+            orders[(i, j)] = order
+            orders[(j, i)] = order
 
         # And atoms bonded to each atom
         neighbors = [set() for i in range(n_atoms + 1)]
@@ -527,6 +532,13 @@ class GeometryAnalysis(seamm.Node):
         terms = [f"{el1}{b12}{el2}" for el1, el2, b12 in zip(el1s, el2s, b12s)]
         values = [f"{distance(XYZ[i - 1], XYZ[j - 1]):.4f}" for i, j in zip(_is, _js)]
         n_bonds = len(values)
+
+        data["bond_lengths"] = [float(v) for v in values]
+        data["bond_orders"] = [
+            orders[(i, j)] if (i, j) in orders else 0 for i, j in zip(_is, _js)
+        ]
+        data["bond_index_i"] = list(_is)
+        data["bond_index_j"] = list(_js)
 
         if n_bonds == 0:
             text += "\nThere are no bonds in this system.\n"
@@ -671,6 +683,17 @@ class GeometryAnalysis(seamm.Node):
             for i, j, k in zip(_is, _js, _ks)
         ]
         n_angles = len(values)
+
+        data["angles"] = [float(v) for v in values]
+        data["angle_bond_orders_ij"] = [
+            orders[(i, j)] if (i, j) in orders else 0 for i, j in zip(_is, _js)
+        ]
+        data["angle_bond_orders_jk"] = [
+            orders[(j, k)] if (j, k) in orders else 0 for j, k in zip(_js, _ks)
+        ]
+        data["angle_index_i"] = list(_is)
+        data["angle_index_j"] = list(_js)
+        data["angle_index_k"] = list(_ks)
 
         if n_angles == 0:
             text += "\nThere are no angles in this system.\n"
@@ -857,6 +880,22 @@ class GeometryAnalysis(seamm.Node):
             f"{dihedral(XYZ[i - 1], XYZ[j - 1], XYZ[k - 1], XYZ[l - 1]):.2f}"
             for i, j, k, l in zip(_is, _js, _ks, _ls)
         ]
+
+        data["dihedrals"] = [float(v) for v in values]
+        data["dihedral_bond_orders_ij"] = [
+            orders[(i, j)] if (i, j) in orders else 0 for i, j in zip(_is, _js)
+        ]
+        data["dihedral_bond_orders_jk"] = [
+            orders[(j, k)] if (j, k) in orders else 0 for j, k in zip(_js, _ks)
+        ]
+        data["dihedral_bond_orders_kl"] = [
+            orders[(k, l)] if (k, l) in orders else 0 for k, l in zip(_js, _ks)
+        ]
+        data["dihedral_index_i"] = list(_is)
+        data["dihedral_index_j"] = list(_js)
+        data["dihedral_index_k"] = list(_ks)
+        data["dihedral_index_l"] = list(_ls)
+
         descriptions = []
         for phi in values:
             phi = float(phi)
@@ -1043,6 +1082,21 @@ class GeometryAnalysis(seamm.Node):
 
         n_oops = len(values)
 
+        data["oops"] = [float(v) for v in values]
+        data["oop_bond_orders_ij"] = [
+            orders[(i, j)] if (i, j) in orders else 0 for i, j in zip(_is, _js)
+        ]
+        data["oop_bond_orders_jk"] = [
+            orders[(j, k)] if (j, k) in orders else 0 for j, k in zip(_js, _ks)
+        ]
+        data["oop_bond_orders_kl"] = [
+            orders[(k, l)] if (k, l) in orders else 0 for k, l in zip(_js, _ks)
+        ]
+        data["oop_index_i"] = list(_is)
+        data["oop_index_j"] = list(_js)
+        data["oop_index_k"] = list(_ks)
+        data["oop_index_l"] = list(_ls)
+
         if n_oops == 0:
             text += "\nThere are no out-of-planes in this system.\n"
         else:
@@ -1139,9 +1193,6 @@ class GeometryAnalysis(seamm.Node):
                 text += "\n"
                 text += tmp
                 text += "\n"
-
-        # Results data
-        data = {}
 
         printer.normal(__(text, indent=4 * " ", wrap=False, dedent=False))
 
