@@ -9,53 +9,53 @@ geometry\_analysis\_step.find\_mopac module
 
 .. automodule:: geometry_analysis_step.find_mopac
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 geometry\_analysis\_step.geometry\_analysis module
 --------------------------------------------------
 
 .. automodule:: geometry_analysis_step.geometry_analysis
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 geometry\_analysis\_step.geometry\_analysis\_parameters module
 --------------------------------------------------------------
 
 .. automodule:: geometry_analysis_step.geometry_analysis_parameters
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 geometry\_analysis\_step.geometry\_analysis\_step module
 --------------------------------------------------------
 
 .. automodule:: geometry_analysis_step.geometry_analysis_step
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 geometry\_analysis\_step.metadata module
 ----------------------------------------
 
 .. automodule:: geometry_analysis_step.metadata
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 geometry\_analysis\_step.tk\_geometry\_analysis module
 ------------------------------------------------------
 
 .. automodule:: geometry_analysis_step.tk_geometry_analysis
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: geometry_analysis_step
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
