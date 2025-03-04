@@ -93,7 +93,7 @@ metadata["results"] = {
         "description": "The angles",
         "dimensionality": "[n_angles]",
         "type": "float",
-        "units": "º",
+        "units": "degree",
     },
     "angle_bond_orders_ij": {
         "description": "The bond orders of i, j",
@@ -129,7 +129,7 @@ metadata["results"] = {
         "description": "The dihedrals",
         "dimensionality": "[n_dihedrals]",
         "type": "float",
-        "units": "º",
+        "units": "degree",
     },
     "dihedral_bond_orders_ij": {
         "description": "The bond orders of i, j",
@@ -177,7 +177,7 @@ metadata["results"] = {
         "description": "The oops",
         "dimensionality": "[n_oops]",
         "type": "float",
-        "units": "º",
+        "units": "degree",
     },
     "oop_bond_orders_ij": {
         "description": "The bond orders of i, j",
