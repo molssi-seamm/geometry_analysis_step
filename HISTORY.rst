@@ -1,6 +1,8 @@
 =======
 History
 =======
+2025.3.4 -- Bugfix: error specifying units of degrees
+
 2025.2.9 -- Added bond lengths, angles, etc. to results
     * This allows them to be saved to variables, JSON, etc. for external analysis or use
       in the flowchart.
