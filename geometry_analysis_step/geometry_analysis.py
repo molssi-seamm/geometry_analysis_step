@@ -245,13 +245,12 @@ class GeometryAnalysis(seamm.Node):
             dihedrals = target["dihedrals"] = []
             oops = target["oops"] = []
             for term in target_terms:
-                if term[0:4] == "oop:":
+                if term.startswith("oop:"):
                     try:
                         i, j, k, l = term[4:].split("-")  # noqa: E741
                         oops.append((int(i), int(j), int(k), int(l)))
                     except Exception:
                         logger.warning(f"Cannot interpret out-of-plane '{term}'")
-                        raise
                 else:
                     tmp = term.split("-")
                     if len(tmp) == 2:
