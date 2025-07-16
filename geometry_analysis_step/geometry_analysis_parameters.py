@@ -83,6 +83,7 @@ class GeometryAnalysisParameters(seamm.Parameters):
                 "bonds",
                 "angles",
                 "dihedrals",
+                "oops",
                 "bonds and angles",
                 "specified terms",
             ),

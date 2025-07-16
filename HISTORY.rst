@@ -1,6 +1,10 @@
 =======
 History
 =======
+2025.7.16 -- Bugfix: explicit OOPs
+    * Fixes a bug in the explicit out-of-plane (oop) code that prevented it showing
+      results.
+      
 2025.3.4 -- Bugfix: error specifying units of degrees
 
 2025.2.9 -- Added bond lengths, angles, etc. to results

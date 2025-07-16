@@ -245,12 +245,13 @@ class GeometryAnalysis(seamm.Node):
             dihedrals = target["dihedrals"] = []
             oops = target["oops"] = []
             for term in target_terms:
-                if term[0:3] == "oop":
+                if term[0:4] == "oop:":
                     try:
-                        i, j, k, l = term[3:].split("-")  # noqa: E741
+                        i, j, k, l = term[4:].split("-")  # noqa: E741
                         oops.append((int(i), int(j), int(k), int(l)))
                     except Exception:
                         logger.warning(f"Cannot interpret out-of-plane '{term}'")
+                        raise
                 else:
                     tmp = term.split("-")
                     if len(tmp) == 2:
@@ -1028,7 +1029,7 @@ class GeometryAnalysis(seamm.Node):
         el3s = []
         el4s = []
         if specified:
-            for i, j, k, l in target["dihedrals"]:
+            for i, j, k, l in target["oops"]:
                 el1 = symbol[i - 1]
                 el2 = symbol[j - 1]
                 el3 = symbol[k - 1]
@@ -1037,6 +1038,14 @@ class GeometryAnalysis(seamm.Node):
                 el1, i = els[0]
                 el3, k = els[1]
                 el4, l = els[2]  # noqa: E741
+                _is.append(i)
+                _js.append(j)
+                _ks.append(k)
+                _ls.append(l)
+                el1s.append(el1)
+                el2s.append(el2)
+                el3s.append(el3)
+                el4s.append(el4)
         else:
             for j in range(n_atoms):
                 if len(neighbors[j]) != 3:
