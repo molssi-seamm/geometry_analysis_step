@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>geometry_analysis_step.geometry_analysis &#8212; SEAMM Geometry Analysis Plug-in 2025.3.4 documentation</title>
+    <title>geometry_analysis_step.geometry_analysis &#8212; SEAMM Geometry Analysis Plug-in 2025.7.16 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=7a2c59d1"></script>
+    <script src="../../_static/documentation_options.js?v=82f8f5ef"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -51,7 +51,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2025.3.4" />
+  <meta name="docsearch:version" content="2025.7.16" />
   </head>
   
   
@@ -726,9 +726,9 @@
             <span class="n">dihedrals</span> <span class="o">=</span> <span class="n">target</span><span class="p">[</span><span class="s2">&quot;dihedrals&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="n">oops</span> <span class="o">=</span> <span class="n">target</span><span class="p">[</span><span class="s2">&quot;oops&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">target_terms</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">term</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;oop&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">term</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;oop:&quot;</span><span class="p">):</span>
                     <span class="k">try</span><span class="p">:</span>
-                        <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="n">term</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>  <span class="c1"># noqa: E741</span>
+                        <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="n">term</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>  <span class="c1"># noqa: E741</span>
                         <span class="n">oops</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">l</span><span class="p">)))</span>
                     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
                         <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot interpret out-of-plane &#39;</span><span class="si">{</span><span class="n">term</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
@@ -1509,7 +1509,7 @@
         <span class="n">el3s</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">el4s</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">if</span> <span class="n">specified</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">target</span><span class="p">[</span><span class="s2">&quot;dihedrals&quot;</span><span class="p">]:</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">target</span><span class="p">[</span><span class="s2">&quot;oops&quot;</span><span class="p">]:</span>
                 <span class="n">el1</span> <span class="o">=</span> <span class="n">symbol</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
                 <span class="n">el2</span> <span class="o">=</span> <span class="n">symbol</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
                 <span class="n">el3</span> <span class="o">=</span> <span class="n">symbol</span><span class="p">[</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
@@ -1518,6 +1518,14 @@
                 <span class="n">el1</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="n">els</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
                 <span class="n">el3</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">els</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
                 <span class="n">el4</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="n">els</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># noqa: E741</span>
+                <span class="n">_is</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="n">_js</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+                <span class="n">_ks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+                <span class="n">_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+                <span class="n">el1s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el1</span><span class="p">)</span>
+                <span class="n">el2s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el2</span><span class="p">)</span>
+                <span class="n">el3s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el3</span><span class="p">)</span>
+                <span class="n">el4s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">el4</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_atoms</span><span class="p">):</span>
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">neighbors</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
