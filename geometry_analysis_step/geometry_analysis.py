@@ -2,9 +2,9 @@
 
 """Non-graphical part of the Geometry Analysis step in a SEAMM flowchart"""
 
+import importlib
 import logging
 from pathlib import Path
-import pkg_resources
 import pprint  # noqa: F401
 
 import numpy as np
@@ -31,7 +31,7 @@ job = printing.getPrinter()
 printer = printing.getPrinter("Geometry Analysis")
 
 # Add this module's properties to the standard properties
-path = Path(pkg_resources.resource_filename(__name__, "data/"))
+path = importlib.resources.files("geometry_analysis_step") / "data"
 csv_file = path / "properties.csv"
 if path.exists():
     molsystem.add_properties_from_file(csv_file)

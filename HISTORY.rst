@@ -1,6 +1,8 @@
 =======
 History
 =======
+2026.3.1 -- Internal: switching from deprecated library pkg_resources to importlib
+
 2025.7.16 -- Bugfix: explicit OOPs
     * Fixes a bug in the explicit out-of-plane (oop) code that prevented it showing
       results.
