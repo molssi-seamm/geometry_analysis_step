@@ -1,9 +1,10 @@
 =======
 History
 =======
-2026.10.3 -- Tables are stored in the job's database
+2026.10.3.1 -- Tables are stored in the job's database
     * Writes its tables to the job's database (seamm 2026.10.3); the CSV, Excel and
       text files are unchanged.
+
 2026.3.1 -- Internal: switching from deprecated library pkg_resources to importlib
 
 2025.7.16 -- Bugfix: explicit OOPs
