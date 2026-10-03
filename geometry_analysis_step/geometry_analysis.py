@@ -8,7 +8,6 @@ from pathlib import Path
 import pprint  # noqa: F401
 
 import numpy as np
-import pandas
 from tabulate import tabulate
 
 import geometry_analysis_step
@@ -268,12 +267,14 @@ class GeometryAnalysis(seamm.Node):
         # Set up tables and columns
         column_name = {}
         column_default = {}
+        column_kind = {}
         default = {"string": "", "integer": 0, "float": np.nan}
         for key in P:
             if "column" in key:
                 name = key.replace(" column", "")
                 column_name[name] = None if P[key].strip() == "" else P[key].strip()
-                column_default[name] = default[self.parameters[key]["kind"]]
+                column_kind[name] = self.parameters[key]["kind"]
+                column_default[name] = default[column_kind[name]]
 
         id_text = None
         if column_name["id"] is not None:
@@ -315,8 +316,9 @@ class GeometryAnalysis(seamm.Node):
                 ):
                     column = column_name[name]
                     if column is not None and column not in table.columns:
-                        handle["defaults"][column] = column_default[name]
-                        table[column] = column_default[name]
+                        table.add_column(
+                            column, column_kind[name], column_default[name]
+                        )
         elif "separate" in table_output:
             bond_table_name = P["bond table"].strip()
             if bond_table_name == "":
@@ -344,8 +346,9 @@ class GeometryAnalysis(seamm.Node):
                 ):
                     column = column_name[name]
                     if column is not None and column not in bond_table.columns:
-                        bond_handle["defaults"][column] = column_default[name]
-                        bond_table[column] = column_default[name]
+                        bond_table.add_column(
+                            column, column_kind[name], column_default[name]
+                        )
 
             angle_table_name = P["angle table"].strip()
             if angle_table_name == "":
@@ -375,8 +378,9 @@ class GeometryAnalysis(seamm.Node):
                 ):
                     column = column_name[name]
                     if column is not None and column not in angle_table.columns:
-                        angle_handle["defaults"][column] = column_default[name]
-                        angle_table[column] = column_default[name]
+                        angle_table.add_column(
+                            column, column_kind[name], column_default[name]
+                        )
 
             dihedral_table_name = P["dihedral table"].strip()
             if dihedral_table_name == "":
@@ -408,8 +412,9 @@ class GeometryAnalysis(seamm.Node):
                 ):
                     column = column_name[name]
                     if column is not None and column not in dihedral_table.columns:
-                        dihedral_handle["defaults"][column] = column_default[name]
-                        dihedral_table[column] = column_default[name]
+                        dihedral_table.add_column(
+                            column, column_kind[name], column_default[name]
+                        )
 
             oop_table_name = P["out-of-plane table"].strip()
             if oop_table_name == "":
@@ -439,8 +444,9 @@ class GeometryAnalysis(seamm.Node):
                 ):
                     column = column_name[name]
                     if column is not None and column not in oop_table.columns:
-                        oop_handle["defaults"][column] = column_default[name]
-                        oop_table[column] = column_default[name]
+                        oop_table.add_column(
+                            column, column_kind[name], column_default[name]
+                        )
         else:
             table_output = None
             bond_table = angle_table = dihedral_table = oop_table = None
@@ -544,7 +550,6 @@ class GeometryAnalysis(seamm.Node):
             text += "\nThere are no bonds in this system.\n"
         else:
             if bond_handle is not None:
-                bond_table = bond_handle["table"]
                 rows = {}
 
                 column = column_name["id"]
@@ -589,10 +594,7 @@ class GeometryAnalysis(seamm.Node):
                 if column is not None:
                     rows[column] = values
 
-                rows = pandas.DataFrame.from_dict(rows)
-                bond_table = pandas.concat([bond_table, rows], ignore_index=True)
-                bond_handle["table"] = bond_table
-                bond_handle["current index"] = bond_table.shape[0] - 1
+                bond_handle.append_rows(_as_rows(rows))
 
                 # Save!
                 self._save_table(bond_handle)
@@ -699,7 +701,6 @@ class GeometryAnalysis(seamm.Node):
             text += "\nThere are no angles in this system.\n"
         else:
             if angle_handle is not None:
-                angle_table = angle_handle["table"]
                 rows = {}
 
                 column = column_name["id"]
@@ -755,10 +756,7 @@ class GeometryAnalysis(seamm.Node):
                 if column is not None:
                     rows[column] = values
 
-                rows = pandas.DataFrame.from_dict(rows)
-                angle_table = pandas.concat([angle_table, rows], ignore_index=True)
-                angle_handle["table"] = angle_table
-                angle_handle["current index"] = angle_table.shape[0] - 1
+                angle_handle.append_rows(_as_rows(rows))
 
                 # Save!
                 self._save_table(angle_handle)
@@ -918,7 +916,6 @@ class GeometryAnalysis(seamm.Node):
             text += "\nThere are no dihedrals in this system.\n"
         else:
             if dihedral_handle is not None:
-                dihedral_table = dihedral_handle["table"]
                 rows = {}
 
                 column = column_name["id"]
@@ -983,12 +980,7 @@ class GeometryAnalysis(seamm.Node):
                 if column is not None:
                     rows[column] = values
 
-                rows = pandas.DataFrame.from_dict(rows)
-                dihedral_table = pandas.concat(
-                    [dihedral_table, rows], ignore_index=True
-                )
-                dihedral_handle["table"] = dihedral_table
-                dihedral_handle["current index"] = dihedral_table.shape[0] - 1
+                dihedral_handle.append_rows(_as_rows(rows))
 
                 # Save!
                 self._save_table(dihedral_handle)
@@ -1109,7 +1101,6 @@ class GeometryAnalysis(seamm.Node):
             text += "\nThere are no out-of-planes in this system.\n"
         else:
             if oop_handle is not None:
-                oop_table = oop_handle["table"]
                 rows = {}
 
                 column = column_name["id"]
@@ -1174,10 +1165,7 @@ class GeometryAnalysis(seamm.Node):
                 if column is not None:
                     rows[column] = values
 
-                rows = pandas.DataFrame.from_dict(rows)
-                oop_table = pandas.concat([oop_table, rows], ignore_index=True)
-                oop_handle["table"] = oop_table
-                oop_handle["current index"] = oop_table.shape[0] - 1
+                oop_handle.append_rows(_as_rows(rows))
 
                 # Save!
                 self._save_table(oop_handle)
@@ -1232,35 +1220,12 @@ class GeometryAnalysis(seamm.Node):
         """
         pass
 
-    def _save_table(self, handle):
+    def _save_table(self, table):
         """Write a table to disk."""
-        filename = handle["filename"]
-        index = handle["index column"]
-        file_type = Path(filename).suffix
-        table = handle["table"]
-        if file_type == ".csv":
-            if index is None:
-                table.to_csv(filename, index=False)
-            else:
-                table.to_csv(filename, index=True, header=True)
-        elif file_type == ".json":
-            if index is None:
-                table.to_json(filename, indent=4, orient="table", index=False)
-            else:
-                table.to_json(filename, indent=4, orient="table", index=True)
-        elif file_type == ".xlsx":
-            if index is None:
-                table.to_excel(filename, index=False)
-            else:
-                table.to_excel(filename, index=True)
-        elif file_type == ".txt":
-            with open(filename, "w") as fd:
-                if index is None:
-                    fd.write(table.to_string(header=True, index=False))
-                else:
-                    fd.write(table.to_string(header=True, index=True))
-        else:
-            raise RuntimeError(
-                f"Save table: cannot handle format '{file_type}' for file "
-                f"'{filename}'"
-            )
+        table.export(table["filename"])
+
+
+def _as_rows(columns):
+    """Rows (dicts) from a dict of equal-length column lists."""
+    names = list(columns)
+    return [dict(zip(names, values)) for values in zip(*columns.values())]
