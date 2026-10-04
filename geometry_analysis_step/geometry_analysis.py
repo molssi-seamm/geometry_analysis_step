@@ -227,7 +227,7 @@ class GeometryAnalysis(seamm.Node):
         directory = Path(self.directory)
         directory.mkdir(parents=True, exist_ok=True)
 
-        root_path = Path(self.flowchart.root_directory).expanduser()
+        root_path = self.job_path.expanduser()
 
         # Get the current system and configuration (ignoring the system...)
         system, configuration = self.get_system_configuration(None)
